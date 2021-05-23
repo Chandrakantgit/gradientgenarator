@@ -1,0 +1,219 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Blogs for CSS</title>
+        <style>
+            html{
+                background:yellow;
+                background-repeat: no-repeat;
+            }
+            #grad {
+                height:fit-content;
+                padding:20px;             
+                justify-content:center;
+                font-size:larger;
+                text-align: center;
+                font-size:2rem;
+                font-style: black;
+            }
+
+            h1 {
+                text-align: center;
+                text-transform: uppercase;
+                font-size:40px;
+            }
+            .site-wrap {
+                max-width: 800px;
+                margin-top: 50;
+                margin: 50px auto;
+                background: white;
+                padding: 40px;
+                text-align: justify;
+                border-radius:30px;
+                background-image: linear-gradient(45deg,rgb(2, 245, 245),white);
+                opacity:90%;
+                box-shadow: -3px 8px 8px 0px rgba(0,0,0,0.75);
+                border:15px black;
+            }
+
+            .text{
+                box-sizing: inherit;
+                margin-bottom:50px;
+                justify-content:center;
+                font-family:script;
+            }
+            
+            .boxed{
+                box-sizing:inherit;
+                display:flex;
+                flex-direction: column;
+                position: relative;
+                margin:auto;
+                margin-bottom:15px;
+                height:100px;
+                justify-content:center;
+                padding:10px;
+            }
+
+            input {
+                display:flex;
+                padding:5px;
+                width:25%;
+                height:25px;
+                border:2px solid;
+                border-radius:5px;
+                justify-content:center;
+                margin-top:25px;
+                margin-bottom:35px;
+                margin-left: 37%;
+                font-size:20px;
+                font-family: helvetica;
+                font-display: center;
+                
+            }
+            .container{
+                margin-top: 120px;
+            }
+
+            input:hover {
+                border:3px solid;
+                border-color: #75b1e9;
+            }
+            button {
+                padding:5px;
+                width:25%;
+                height:40px;
+                border:2px solid;
+                border-radius:5px;
+                justify-content:center;
+                margin-top:25px;
+                margin-bottom:30px;
+                margin-left: 37%;
+                font-size:20px;
+                font-family: helvetica;
+                font-display: center;
+                background-color: #5494f3;
+                
+            }
+            .footer {
+                margin: 0 auto 10px auto;
+                padding: 15px;
+                background: RGBA(255,255,255,0.12);
+                backdrop-filter: blur(15px);
+                border-radius: 5px;
+                width: 700px;
+                text-align: center;
+                font-style: white;
+                box-shadow: -3px 8px 8px 0px rgba(0,0,0,0.75);
+                margin-bottom: 50px;
+            }
+
+            .footer > span {
+                text-shadow: -1px 2px 5px rgba(0,0,0,0.54);
+                padding: 5px;
+                color: #49448f;
+                text-align: center;
+                font-size: 1em;
+                font-weight: 600;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            #linear {
+                display:flex;
+                margin-top:120px;
+                margin-left: auto;
+                margin-right:auto;
+                justify-content: center;
+                height:400px;
+                width:400px;
+                border:2px solid black;
+                border-radius: 40px;;
+            }
+
+            #radial {
+                display:flex;
+                margin-top:120px;
+                margin-left: auto;
+                margin-right:auto;
+                justify-content: center;
+                height:400px;
+                width:400px;
+                border:2px solid black;
+                border-radius: 40px;;
+            }
+
+            .codes{
+                box-sizing: inherit;
+                margin-top:20px;
+                font-size: 2rem;
+                font-family: times, serif;
+            }
+
+                    
+
+        </style>
+    </head>
+    <body>
+        <div class="site-wrap">
+             <h1>CSS Gradient Generator</h1>
+             <div id="grad">
+                <div class="text">
+                    <p>Webpage designing is an interesting part of frontend development.</p>
+                    <p>Gradients basically mean changing of magnitude of a property with change in position.CSS gives us a way to apply gradients in background-image property of styles.This is a minimalistic and simple tool to understand linear and radial gradient.<br>
+                    You  have to fill the three input forms with your favourite colors(or their hexcodes) and just press the button to get to see how the gradients would look and the respective CSS codes.</p>
+                    </p>
+                </div>
+                <div class ="container">
+                    <div class ="boxed">
+                        <input type="text" id="one" placeholder="First color">
+                        <input type="text" id="two" placeholder="second color">
+                        <input type="text" id="three" placeholder="third color">
+                        <button class="btn" onclick="gradient()">Get gradients</button>
+                    </div>
+                </div>
+                <div id="linear">
+                </div>
+                Linear gradient
+                <div id="radial"></div>
+                Radial gradient
+                <div class="codes">
+                    Styling attributes for the above gradients respectively.
+                <div id="code"></div>
+                <div id="code1"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <span class="credits">Made with ❤️ by Chandrakant Khannade</span>
+            <a href="https://twitter.com/sereneChandra?ref_src=twsrc%5Etfw" class="twitter-follow-button"
+                data-show-count="false">Follow @sereneChandra</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </footer>
+
+        <script>
+          
+          function gradient() {  
+            var one = document.querySelector("#one").value;
+            var two = document.querySelector("#two").value;
+            var three = document.querySelector("#three").value;
+            console.log(one, two, three);
+
+            var linear = document.getElementById("linear");
+            console.log(linear);
+            linear.setAttribute('style',`background-image:linear-gradient(${one},${two},${three})`);
+            
+            var radial = document.getElementById("radial");
+            console.log(linear);
+            radial.setAttribute('style',`background-image:radial-gradient(${one},${two},${three})`);
+
+            if(one != "" && two != "" && three != ""){
+                document.getElementById("code").innerHTML=`background-image:linear-gradient(${one},${two},${three});`;
+                document.getElementById("code1").innerHTML=`background-image:radial-gradient(${one},${two},${three});`;
+            }
+        }
+
+        </script>
+  </body>
+</html>>
